@@ -4,22 +4,22 @@ Warlock::Warlock(const std::string &name, const std::string &title)
 {
 	this->name = name;
 	this->title = title;
-	std::cout << this->name << ": Coucou\n";
+	std::cout << this->name << ": This looks like another boring day.\n";
 }
 
 Warlock::~Warlock()
 {
-	std::cout << this->name << ": ByeBye\n";
+	std::cout << this->name << ": My job here is done!\n";
 }
 
-const std::string	&Warlock::getName() const
+const	std::string	&Warlock::getName() const
 {
-	return(this->name);
+	return (this->name);
 }
 
-const std::string	&Warlock::getTitle() const
+const	std::string	&Warlock::getTitle() const
 {
-	return(this->title);
+	return (this->title);
 }
 
 void	Warlock::setTitle(const std::string &title)
@@ -29,5 +29,5 @@ void	Warlock::setTitle(const std::string &title)
 
 void	Warlock::introduce() const
 {
-	std::cout << this->name << " - " << this->title << std::endl;
+	std::cout << this->name << ": I am " << this->name << ", " << this->title << "!\n";
 }

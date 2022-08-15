@@ -1,13 +1,14 @@
-#include "ASpell.hpp"		
-#include "Dummy.hpp"		
-#include "Polymorph.hpp"		
 #include "Warlock.hpp"
-#include "ATarget.hpp"		
-#include "Fireball.hpp"		
-#include "SpellBook.hpp"
-#include "BrickWall.hpp"		
+#include "ASpell.hpp"
+#include "ATarget.hpp"
 #include "Fwoosh.hpp"
+#include "Dummy.hpp"
+#include "SpellBook.hpp"
 #include "TargetGenerator.hpp"
+#include "BrickWall.hpp"
+#include "Fireball.hpp"
+#include "Polymorph.hpp"
+
 
 int main()
 {
@@ -30,22 +31,4 @@ int main()
   richard.introduce();
   richard.launchSpell("Polymorph", *wall);
   richard.launchSpell("Fireball", *wall);
-  
-  richard.forgetSpell("Polymorph");
-  std::cout << "l" << std::endl;
-  richard.forgetSpell("cdedeed");
-  std::cout << "l1" << std::endl;
-  richard.forgetSpell("Fireball");
-  std::cout << "l2" << std::endl;
-  richard.forgetSpell("cdedeed");
-  std::cout << "l3" << std::endl;
-  richard.launchSpell("Polymorph", *wall);
-  std::cout << "l4" << std::endl;
-  richard.launchSpell("Fireball", *wall);
-  std::cout << "l5" << std::endl;
-  richard.learnSpell(0);
-  std::cout << "l6" << std::endl;
-  richard.launchSpell("wddwdw", model1);
-
-  tarGen.forgetTargetType("Inconspicuous Red-brick Wall");
 }

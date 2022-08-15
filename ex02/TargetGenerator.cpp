@@ -1,46 +1,60 @@
 #include "TargetGenerator.hpp"
+//#include "ATarget.hpp"
 
-TargetGenerator::TargetGenerator() {}
-
-TargetGenerator::~TargetGenerator() {}
-
-void TargetGenerator::learnTargetType(ATarget* t)
+TargetGenerator::TargetGenerator()
 {
-	ATarget *target;
 
-	if (t == 0)
-		return ;
-	target = createTarget(t->getType());
-	if (!target)
-		targets.push_back(t);	
 }
 
-void TargetGenerator::forgetTargetType(const std::string &t)
+TargetGenerator::~TargetGenerator()
 {
-	std::vector<ATarget *>::iterator i;
 
-	i = targets.begin();
-	while (i != targets.end())
-	{
-		if ((*i)->getType() == t)
-		{
-			targets.erase(i);
-			return ;
-		}
-		i++;
-	}
 }
 
-ATarget *TargetGenerator::createTarget(const std::string &t)
+void    TargetGenerator::learnTargetType(ATarget *newTarget)
 {
-	std::vector<ATarget *>::iterator i;
+        std::vector<ATarget *>::iterator i;
 
-	i = targets.begin();
-	while (i != targets.end())
-	{
-		if ((*i)->getType() == t)
-			return (*i);
-		i++;
-	}
-	return (0);
+        i = this->target.begin();
+        while(i != this->target.end())
+        {
+                if ((*i)->getType() == newTarget->getType())
+                        return ;
+                i++;
+        }
+        this->target.push_back(newTarget->clone());
+}
+
+
+void    TargetGenerator::forgetTargetType(const std::string &oldTarget)
+{
+        std::vector<ATarget *>::iterator i;
+
+        i = this->target.begin();
+        while(i != this->target.end())
+        {
+                if ((*i)->getType() == oldTarget)
+                {
+                        this->target.erase(i);
+                        return ;
+                }
+                i++;
+        }
+
+}
+
+ATarget	*TargetGenerator::createTarget(const std::string &usedTarget)
+{
+        std::vector<ATarget *>::iterator i;
+
+        i = this->target.begin();
+        while(i != this->target.end())
+        {
+                if ((*i)->getType() == usedTarget)
+                {
+                        return (*i);
+                }
+                i++;
+        }
+	return (NULL);
 }

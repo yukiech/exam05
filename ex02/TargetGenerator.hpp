@@ -1,24 +1,23 @@
-#ifndef TARGETGENERATOR
-#define TARGETGENERATOR
+#pragma once
 
-#include "ATarget.hpp"
+#include <iostream>
 #include <vector>
+#include "ATarget.hpp"
+
+class ATarget;
 
 class TargetGenerator
 {
-private:
-	std::vector<ATarget *> targets;	
-	
-	TargetGenerator(const TargetGenerator &t);
-	void operator=(const TargetGenerator &t);
-
-public:
-	TargetGenerator();
-	~TargetGenerator();
-
-	void learnTargetType(ATarget* t);
- 	void forgetTargetType(const std::string &t);
- 	ATarget *createTarget(const std::string &t);  
+	private:
+		std::vector<ATarget *>	target;
+		TargetGenerator(const TargetGenerator &other);
+		TargetGenerator &operator=(const TargetGenerator &other);
+		TargetGenerator(const std::string &type);
+	public:
+		TargetGenerator();
+		~TargetGenerator();
+		void    learnTargetType(ATarget *newTarget);
+                void    forgetTargetType(const std::string &oldTarget);
+                ATarget	*createTarget(const std::string &usedTarget);
+		
 };
-
-#endif
