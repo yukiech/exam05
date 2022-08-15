@@ -5,10 +5,10 @@ Nothing to be said
 
 Ex01:
 
-ASpell.hpp :
-- virtual ~ASpell();
-- virtual ASpell *clone() const = 0;
-- Passer en public le "&operator="
-- ATarget = identique a ASpell
-- Dummy et Fwoosh -> construct vide, destruct vide et "virtual ATarget *clone() const;" (dans .cpp = "return (new Dummy);")
+Nothing to be said
 
+Ex02:
+
+Re-learn Warlock.cpp/SpellBook.cpp/TargetGenerator.cpp
+launch/learn functions
+(overall every 3 last functions)
